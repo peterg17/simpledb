@@ -264,7 +264,7 @@ public class TupleDesc implements Serializable {
         for (int i=0; i < this.numFields(); i++) {
             TDItem tupField = this.tupleFields.get(i);
             fieldTypeHashSum += tupField.fieldType.hashCode();
-            fieldNameHashSum += tupField.fieldName.hashCode();
+            fieldNameHashSum += null == tupField.fieldName ? 0 : tupField.fieldName.hashCode();
         }
         hash = 31 * hash + fieldTypeHashSum;
         hash = 31 * hash + fieldNameHashSum;
