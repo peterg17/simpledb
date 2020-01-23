@@ -168,6 +168,18 @@ public class TupleDescTest extends SimpleDbTestBase {
     }
 
     /**
+     * Unit test for TupleDesc.hashCode(), making sure that 
+     * equal TupleDesc objects have the same hash code
+     */
+    @Test public void testHashCode() {
+        TupleDesc intIntString = new TupleDesc(new Type[]{Type.INT_TYPE, Type.INT_TYPE, Type.STRING_TYPE});
+        TupleDesc intIntString2 = new TupleDesc(new Type[]{Type.INT_TYPE, Type.INT_TYPE, Type.STRING_TYPE});
+        System.out.println(String.format("intIntString has hash: %d and intIntString2 has hash: %d", intIntString.hashCode(), intIntString2.hashCode()));
+        assertTrue("intIntString objects should be equal", intIntString.equals(intIntString2));
+        assertTrue("intIntString objects should have the same hash code", intIntString.hashCode() == intIntString2.hashCode()); 
+    }
+
+    /**
      * JUnit suite target
      */
     public static junit.framework.Test suite() {
