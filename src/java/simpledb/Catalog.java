@@ -18,12 +18,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Catalog {
 
+    // maintain a hashmap of the name of the table to the db file with the table data
+    private Map<String, DbFile> tables;
+
     /**
      * Constructor.
      * Creates a new, empty catalog.
      */
     public Catalog() {
-        // some code goes here
+        tables = new HashMap<String, DbFile>();
     }
 
     /**
@@ -36,7 +39,7 @@ public class Catalog {
      * @param pkeyField the name of the primary key field
      */
     public void addTable(DbFile file, String name, String pkeyField) {
-        // some code goes here
+        
     }
 
     public void addTable(DbFile file, String name) {
